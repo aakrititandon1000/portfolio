@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aakriti Tandon – Graphic Designer & Front-End Developer crafting cinematic, modern, and conversion-driven digital experiences.">
+<title>Aakriti Tandon | Designer & Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- GLOBAL ---------- */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0b0b0f;
+  color:#cfcfe5;
+  scroll-behavior:smooth;
+}
+
+section{
+  padding:100px 8%;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Tablets / iPad */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 48px;
+  }
+
+  header p {
+    font-size: 16px;
+    max-width: 500px;
+  }
+
+  nav ul {
+    gap: 20px;
+  }
+
+  nav {
+    padding: 15px 5%;
+  }
+
+  .hero-bg-ak span {
+    font-size: 20px;
+  }
+
+  .card img, .graphic .card img {
+    height: auto;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .tab-btn {
+    padding: 12px 20px;
+  }
+
+  .contact-card {
+    padding: 40px 30px;
+  }
+}
+
+/* Tablets and Mobile Portrait */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 36px;
+  }
+
+  header p {
+    font-size: 15px;
+    max-width: 400px;
+  }
+
+  nav ul {
+    display: none; /* hide links for toggle menu */
+    flex-direction: column;
+    gap: 20px;
+    background: #0f0f14;
+    position: absolute;
+    top: 70px;
+    right: 8%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav .menu-toggle {
+    display: block;
+  }
+
+  .hero-bg-ak span {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 80px 5%;
+  }
+
+  .card img, .graphic .card img {
+    height: auto;
+  }
+
+  .gallery {
+    gap: 20px;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab-btn {
+    padding: 10px 15px;
+  }
+
+  .contact-card {
+    padding: 30px 20px;
+  }
+}
+
+/* Mobile / small screens */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  header p {
+    font-size: 14px;
+    max-width: 300px;
+  }
+
+  .btn {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  .hero-bg-ak span {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 60px 4%;
+  }
+
+  .contact-card {
+    padding: 20px 15px;
+  }
+
+  .card img, .graphic .card img {
+    height: auto;
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 20px 10px;
+  }
+}
+
+
+/* ---------- NAVIGATION ---------- */
+nav{
+  width:100%;
+  background:#0f0f14;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  box-shadow:0 5px 20px rgba(0,0,0,0.7);
+}
+
+nav .logo{
+  font-size:22px;
+  font-weight:700;
+  color:#cfcfe5;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:#cfcfe5;
+  font-weight:500;
+  transition:.3s;
+}
+
+nav ul li a:hover{
+  color:#fff;
+  text-decoration:underline;
+}
+
+nav .menu-toggle{
+  display:none;
+  font-size:24px;
+  color:#cfcfe5;
+  cursor:pointer;
+}
+
+/* Mobile / Tablets */
+nav ul {
+  display: flex; /* default for desktop */
+}
+
+nav .menu-toggle {
+  display: none; /* show only on mobile */
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* hide links */
+    flex-direction: column;
+    gap: 20px;
+    background: #0f0f14;
+    position: absolute;
+    top: 70px;
+    right: 8%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  nav ul.show {
+    display: flex; /* show when menu toggled */
+  }
+
+  nav .menu-toggle {
+    display: block;
+  }
+}
+
+
+/* ---------- HERO ---------- */
+header{
+  position:relative;
+  min-height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(120deg,#111,#1c1c26);
+  overflow:hidden;
+  text-align:center;
+  perspective:1000px;
+  padding-top:80px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:3;
+  animation:heroFade 1.2s ease;
+  transition: transform 0.3s ease-out;
+}
+
+header:hover .hero-content{
+  transform: rotateY(5deg) rotateX(3deg) scale(1.02);
+}
+
+@keyframes heroFade{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+header h1{
+  font-size:64px;
+  font-weight:700;
+  text-shadow:0 2px 15px rgba(0,0,0,0.6);
+  line-height:1.2;
+  transition: transform 0.3s ease-out;
+}
+
+header h1 .highlight{
+  position:relative;
+  color:#cfcfe5;
+  display:inline-block;
+}
+
+header h1 .highlight::before{
+  content:"";
+  position:absolute;
+  left:-5px;
+  bottom:0;
+  width:110%;
+  height:10px;
+  background:rgba(207,207,229,0.3);
+  border-radius:5px;
+  transform:scaleX(0);
+  transform-origin:left;
+  animation:highlightSlide 1s ease forwards 0.5s;
+}
+
+@keyframes highlightSlide{
+  to{transform:scaleX(1);}
+}
+
+header p{
+  max-width:650px;
+  margin:25px auto 0;
+  color:#bcbcd1;
+  font-size:18px;
+  line-height:1.8;
+  animation:fade 1.2s ease forwards 1s;
+  transition: transform 0.3s ease-out;
+}
+
+/* ---------- BUTTON ---------- */
+.btn{
+  margin-top:35px;
+  display:inline-block;
+  padding:16px 40px;
+  border-radius:30px;
+  background:#cfcfe5;
+  color:#0b0b0f;
+  font-weight:600;
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
+  text-decoration:none;
+  animation:fade 1s ease forwards 1.5s;
+  box-shadow:0 0 15px rgba(207,207,229,0.6);
+}
+
+.btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);
+  transform:translateX(-100%);
+  transition:.6s;
+}
+
+.btn:hover::after{
+  transform:translateX(100%);
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+  animation:btnGlow 1s infinite alternate;
+}
+
+@keyframes btnGlow{
+  0%{
+    box-shadow:0 0 20px rgba(207,207,229,0.6), 0 0 30px rgba(207,207,229,0.4);
+    transform:translateY(-4px);
+  }
+  50%{
+    box-shadow:0 0 25px rgba(207,207,229,0.8), 0 0 35px rgba(207,207,229,0.5);
+    transform:translateY(-6px);
+  }
+  100%{
+    box-shadow:0 0 20px rgba(207,207,229,0.6), 0 0 30px rgba(207,207,229,0.4);
+    transform:translateY(-4px);
+  }
+}
+
+
+/* ---------- HERO AK PATTERN PREMIUM (VISIBLE FIX) ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-ak {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* behind content */
+  pointer-events: none;
+  perspective: 1200px;
+}
+
+.hero-bg-ak span {
+  position: absolute;
+  top: -20%;
+  font-size: 26px; /* MORE VISIBLE */
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(220, 220, 255, 0.35); /* BRIGHTER */
+  text-shadow:
+    0 0 12px rgba(220, 220, 255, 0.65),
+    0 0 28px rgba(200, 200, 255, 0.45);
+  animation: fallInHeader 18s linear infinite;
+  user-select: none;
+  white-space: nowrap;
+}
+
+@keyframes fallInHeader {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.75; /* HIGH VISIBILITY */
+  }
+
+  50% {
+    transform: translateY(45vh) translateX(25px);
+    opacity: 0.55;
+  }
+
+  85% {
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translateY(85vh) translateX(-25px);
+    opacity: 0;
+  }
+}
+
+.hero-bg-ak {
+  filter: blur(0.2px);
+}
+
+header {
+  position: relative;
+  overflow: hidden; /* LOCK FALL INSIDE HEADER */
+}
+
+/* ---------- SECTION TITLE ---------- */
+.section-title{
+  font-size:38px;
+  margin-bottom:50px;
+  text-align:center;
+  position:relative;
+}
+
+.section-title::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:3px;
+  background:#cfcfe5;
+  margin:15px auto 0;
+  border-radius:3px;
+}
+
+/* ---------- ABOUT ---------- */
+.about{
+  max-width:900px;
+  color:#cfcfe5;
+  line-height:1.9;
+  font-size:17px;
+  margin:auto;
+  animation:fade 1s ease forwards;
+}
+
+/* ---------- TABS ---------- */
+.tabs{
+  display:flex;
+  background:#1a1a24;
+  border-radius:40px;
+  overflow:hidden;
+  width:max-content;
+  margin:0 auto 60px;
+}
+
+.tab-btn{
+  padding:14px 40px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.4s;
+  color:#cfcfe5;
+}
+
+.tab-btn.active{
+  background:#cfcfe5;
+  color:#0b0b0f;
+}
+
+/* WEB SECTION FLEX */ 
+#web.active{ display:flex; 
+flex-direction:column; 
+gap:70px; 
+} 
+/* VIDEO CARD */ 
+.video-card{ background:#000; 
+  padding:24px; 
+  border-radius:24px; 
+  box-shadow:0 25px 60px rgba(0,0,0,0.6); 
+  transition:.4s ease; 
+} .video-card video{ width:100%; 
+  height:auto; 
+  border-radius:16px; 
+  object-fit:contain; 
+  background:#000; 
+} 
+.video-card:hover{ transform:translateY(-8px); box-shadow:0 40px 80px rgba(0,0,0,0.8); }
+
+/* ---------- GALLERY ---------- */
+.gallery{
+  display:none;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+  animation:fade .6s ease;
+}
+
+.gallery.active{
+  display:grid;
+}
+
+/* ---------- CARD ---------- */
+.card{
+  background:#1b1b27;
+  border-radius:20px;
+  overflow:hidden;
+  transition:.5s transform ease, .5s box-shadow ease;
+  position:relative;
+  transform-style: preserve-3d;
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  transition:.6s transform ease;
+  border-radius:20px;
+}
+
+.card:hover{
+  transform:translateY(-15px) rotateY(5deg) rotateX(3deg);
+  box-shadow:0 30px 60px rgba(0,0,0,.6);
+}
+
+.card:hover img{
+  transform:scale(1.1);
+}
+
+.card div{
+  padding:22px;
+  position:relative;
+  z-index:2;
+}
+
+/* Graphic Design Cards */
+.graphic .card img{
+  height:420px;
+}
+
+/* ---------- PREMIUM CONTACT SECTION ---------- */
+.contact-section{
+  background:linear-gradient(135deg,#0f0f14,#1c1c26);
+  text-align:center;
+  padding:120px 8%;
+}
+
+.contact-card{
+  max-width:650px;
+  margin:60px auto 0;
+  padding:60px 50px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(207,207,229,0.15);
+  border-radius:30px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.6);
+  transition:.4s ease;
+}
+
+.contact-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 35px 80px rgba(0,0,0,0.8);
+}
+
+.contact-intro{
+  font-size:17px;
+  color:#bcbcd1;
+  margin-bottom:40px;
+  line-height:1.8;
+}
+
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+
+.contact-item{
+  padding:20px 25px;
+  border-radius:18px;
+  background:#14141c;
+  border:1px solid rgba(255,255,255,0.05);
+  text-decoration:none;
+  color:#cfcfe5;
+  text-align:left;
+  transition:.3s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.contact-item span{
+  font-weight:600;
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.contact-item small{
+  font-size:14px;
+  color:#9b9bb5;
+}
+
+.contact-item:hover{
+  background:#cfcfe5;
+  color:#0b0b0f;
+  transform:translateX(6px);
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:40px;
+  background:#0f0f14;
+  color:#9b9bb5;
+}
+
+footer a{
+  color:#cfcfe5;
+  margin:0 10px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+footer a:hover{
+  color:#fff;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Aakriti Tandon</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul id="nav-links">
+        <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div class="hero-content">
+    <h1>
+      I’m <span class="highlight">Aakriti Tandon</span>
+    </h1>
+    <p>
+      Graphic Design Student & Front-End Design Intern creating clean, creative, and impactful digital experiences.
+    </p>
+    <a class="btn" href="#work">Explore Work</a>
+  </div>
+
+
+  <!-- Hero AK Pattern Premium -->
+<div class="hero-bg-ak">
+  <span data-depth="0.2" style="left:10%; animation-delay:0s;">HTML & CSS</span>
+  <span data-depth="0.4" style="left:30%; animation-delay:4s;">Adobe Photoshop</span>
+  <span data-depth="0.6" style="left:55%; animation-delay:8s;">Adobe Illustrator</span>
+  <span data-depth="0.3" style="left:75%; animation-delay:12s;">Adobe InDesign</span>
+</div>
+
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+    <p class="about">
+    I’m Aakriti Tandon, a passionate graphic design student and front-end developer.
+    I’m currently pursuing a B.Des in Graphic Design from Maharaja Agrasen Himalayan
+    Garhwal University and have also completed a B.Com degree from the School of Open Learning.
+    <br><br>
+    I’ve gained hands-on experience through graphic design internships at Corizo and
+    Yhills Edutech, where I worked on branding, marketing creatives, and responsive
+    websites using HTML, CSS, JavaScript, and Bootstrap. Alongside this, I’ve worked
+    as a freelance graphic designer with MarketIt, delivering customized visual
+    solutions tailored to client needs.
+    <br><br>
+    My work is driven by strong design fundamentals, attention to detail, and a
+    customer-focused approach—creating designs that are visually engaging,
+    functional, and effective.
+  </p>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <h2 class="section-title">My Work</h2>
+
+  <div class="tabs">
+    <div class="tab-btn active" onclick="openTab(event,'web')">Web Design</div>
+    <div class="tab-btn" onclick="openTab(event,'graphic')">Graphic Design</div>
+  </div>
+
+  <div class="gallery active" id="web">
+   <div class="card video-card">
+    <video autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dpb2iczcm/video/upload/v1770631068/Screen_Recording_2026-02-04_213110_f73aud.mp4" type="video/mp4">
+    </video>
+   </div>
+
+   <div class="card video-card">
+    <video autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dpb2iczcm/video/upload/v1770631267/Screen_Recording_2026-02-04_213324_wphkrn.mp4" type="video/mp4">
+    </video>
+   </div>
+
+   <div class="card video-card">
+    <video autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dpb2iczcm/video/upload/v1770631185/Screen_Recording_2026-02-04_213446_duzs9t.mp4" type="video/mp4">
+    </video>
+   </div>
+  </div>
+
+  <div class="gallery graphic" id="graphic">
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/78/25/7d/78257dbdfcade9e720ddc255cb58e732.jpg" alt="Social Media Creatives">
+    </div>
+
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/20/74/65/207465ac8be4c7c23c47db733b47ac74.jpg" alt="Social Media Creatives">
+    </div>
+
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/aa/db/f4/aadbf4f6075272ac93a8fac9679f7b99.jpg" alt="Social Media Creatives">
+    </div>
+    
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/0c/0e/89/0c0e89f64cc3037463d54d17358d6517.jpg" alt="Social Media Creatives">
+    </div>
+
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/70/48/58/7048585bb84b88e59ad9f84631c38b32.jpg" alt="Social Media Creatives">
+    </div>
+    
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/bb/dd/0e/bbdd0e9b16bb684bc05ea75cbec944f0.jpg" alt="Social Media Creatives">
+    </div>
+
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/47/7a/66/477a6670033f19aae9a2567671da411b.jpg" alt="Social Media Creatives">
+    </div>
+
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/6c/3e/e6/6c3ee6690f936dac4a81c3c3172463b6.jpg" alt="Social Media Creatives">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Let’s Connect</h2>
+
+  <div class="contact-card">
+
+    <p class="contact-intro">
+      I’m always open to collaborations, freelance projects,
+      and creative opportunities. Let’s build something impactful.
+    </p>
+
+    <div class="contact-links">
+
+     <a href="https://www.behance.net/aakrititandon1" target="_blank" class="contact-item">
+        <span>Behance</span>
+        <small>behance.net/aakrititandon1</small>
+      </a>
+
+      <a href="mailto:aakrititandon1000@gmail.com" class="contact-item">
+        <span>Email</span>
+        <small>aakrititandon1000@gmail.com</small>
+      </a>
+
+      <a href="tel:+919599059908" class="contact-item">
+        <span>Phone</span>
+        <small>+91 95990 59908</small>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+<p>Creating clean, modern, and impactful digital experiences.</p>
+</footer>
+
+<script>
+
+function openTab(event, tab){
+  document.querySelectorAll('.gallery').forEach(g=>g.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+
+// Toggle mobile menu
+function toggleMenu() {
+  const navLinks = document.getElementById('nav-links');
+  navLinks.classList.toggle('show');
+}
+
+window.addEventListener('scroll', function() {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 50) {
+    nav.style.padding = '12px 8%';
+    nav.style.background = '#0b0b0f'; // slightly darker
+    nav.style.boxShadow = '0 5px 25px rgba(0,0,0,0.8)';
+  } else {
+    nav.style.padding = '20px 8%';
+    nav.style.background = '#0f0f14'; // original
+    nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.7)';
+  }
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('#nav-links li a').forEach(link => {
+  link.addEventListener('click', () => {
+    const navLinks = document.getElementById('nav-links');
+    if (navLinks.classList.contains('show')) {
+      navLinks.classList.remove('show');
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
